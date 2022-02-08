@@ -25,8 +25,8 @@ function res() {
         resElement.removeChild(para);
     var amountElement = window.document.getElementById("principal");
     var amount = amountElement.value;
-    if (amount < 0) {
-        alert("amount must be >0");
+    if (amount <= 0) {
+        alert("amount must be positive");
         amountElement.focus();
         return;
     }
@@ -48,7 +48,7 @@ function res() {
     resElement.appendChild(para);
 }
 function intrestRate(amount, intreset, year) {
-    return Math.round((amount * ((1 + intreset) ** year)) * 100) / 100;
+    return (amount *  intreset * year) ;
 }
 
 function addSpan(number) {
