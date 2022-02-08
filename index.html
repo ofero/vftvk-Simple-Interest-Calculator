@@ -4,61 +4,8 @@
     <link rel="stylesheet" href="style.css">
     </head>
     <body onload="init()">
-        <script type="text/javascript">
-            var para;
-            function UpdateRValue() {
-                var lr = window.document.getElementById("rate");
-
-                var lb = window.document.getElementById("rValue");
-                lb.textContent = lr.value + "%";
-            }
-            function buildYears() {
-                var text = "";
-                for (let i = 1; i < 21; i++) {
-                    text += " <option value=\"" + i + "\">" + i + "</option>";
-                }
-                var yr = window.document.getElementById("years");
-                yr.innerHTML = text;
-            }
-            function init() {
-                UpdateRValue();
-                buildYears();
-            }
-            function res() {
-               
-                if (para != undefined)
-                    document.body.removeChild(para);
-                para= document.createElement("p");
-                para.innerHTML = "If you deposit ";
-                var amount = window.document.getElementById("principal").value;
-                addSpan(amount);
-                para.innerHTML += "at an intresrt rate of ";
-                var rate = window.document.getElementById("rate").value;
-                addSpan(rate+"%");
-                document.body.appendChild(para);
-                para.innerHTML += "You will recieve an amount of ";
-                var years=parseInt(window.document.getElementById("years").value);
-                addSpan(intrestRate(parseInt(amount), parseInt(rate)/100,years));
-                para.innerHTML += "in the year ";
-                var date = new Date();
-                var yearcal = date.getFullYear() + years ;
-                addSpan(yearcal);
-            }
-            function intrestRate(amount, intreset, year) {
-                return Math.round(( amount * ((1 + intreset) ** year ))*100)/100;
-            }
-
-            function addSpan(number) {
-                var span = document.createElement("span");
-                span.innerHTML = number;
-                para.appendChild(span);
-
-                var br = document.createElement("br");
-                para.appendChild(br);
-            }
-        </script>
-        <h1>Simple Interest Calculator</h1>
-        <div class="form">
+        <div class="rectangle">
+            <h1>Simple Interest Calculator</h1>
             <form>
                 <table>
                     <tr>
@@ -66,7 +13,7 @@
                             <label for="principal">Amount </label>
                         </td>
                         <td>
-                            <input type="number" id="principal" name="principal">
+                            <input type="number" id="principal" name="principal" min="0" value="1000">
                         </td>
                     </tr>
                     <tr>
@@ -77,7 +24,7 @@
                             <input type="range" id="rate" name="rate" value="3.5" min="0" max="20" step="0.1" onchange="UpdateRValue();">
                             <label id="rValue"></label>
                         </td>
-                        
+
                     </tr>
                     <tr>
                         <td>
@@ -93,14 +40,21 @@
 
 
 
-                <button  type="button" onclick="res()">Compute Intrest</button>
                 <!--<p id="result" name="result" >
-                    If you deposit <span> 10</span>, <br />
-                    at an intresrt rate of <span> 3.5%</span>, <br />
-                    You will recieve an amount of <span> 1</span>, <br/>
-                    in the year <span> 1</span>
-                </p>-->
+            If you deposit <span> 10</span>, <br />
+            at an intresrt rate of <span> 3.5%</span>, <br />
+            You will recieve an amount of <span> 1</span>, <br/>
+            in the year <span> 1</span>
+        </p>-->
             </form>
+            <button type="button" onclick="res()">Compute Intrest</button>
+
+            <div id="result">
+
+            </div>
+            <div id="footer">
+                <label>&#9400; Everyone Can Get Rich</label>
+            </div>
         </div>
     </body>
 </html>

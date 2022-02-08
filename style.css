@@ -1,8 +1,13 @@
-body {background-color:white; font-size:large;}
+body {
+    background-color: black;
+    font-size: large;
+    text-align: left;
+}
 h1 {
-    
+    background-color: white;
     color: gray;
     text-align: left;
+  
 }
 table
 {
@@ -10,21 +15,34 @@ table
     height:120px;
     font-size:20px;
 }
-div.form
-{
-    display: block;
-    text-align: center;
-}
-form
-{
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-}
+
 span
 {
     background-color:yellow;
 }
+
+.rectangle {
+    border-radius: 25px;
+    padding-top: 40px;
+    padding-left: 40px;
+    width: 500px;
+    height: 400px;
+    border: 1px solid #000;
+    position: relative;
+    background-color: white;
+    margin-left: 40px;
+}
+
+.result {
+    background-color: white;
+}
+form {
+    padding-left: 50px;
+
+}
+.footer {
+    padding-left: 0px;
+}
+
 
 
